@@ -1,0 +1,491 @@
+/* client/src/components/Login.css - OPTIMIZADA PARA RENDIMIENTO */
+
+.login-container {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  width: 60vw;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-darker) 100%);
+}
+
+.login-title {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem 4rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-title:hover {
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.login-title h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  line-height: 0.85;
+  margin: 0;
+  position: relative;
+}
+
+
+.login-title h1::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 6s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+
+.login-left {
+  flex: 1;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.login-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px, 30px 30px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Efecto de partículas */
+.login-left::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 215, 0, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 160px 120px, rgba(168, 85, 247, 0.15), transparent);
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  animation: float 15s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.login-left img {
+  width: 70%;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 10px 25px rgba(124, 58, 237, 0.3);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.login-left img:hover {
+  transform: scale(1.05) translateY(-8px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.6),
+    0 15px 30px rgba(124, 58, 237, 0.4);
+}
+
+
+.login-right {
+  flex: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 15, 26, 0.95) 0%,
+    rgba(26, 26, 46, 0.9) 50%,
+    rgba(30, 27, 46, 0.9) 100%
+  );
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 8rem;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Patrón de fondo  */
+.login-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(30deg, transparent 49%, rgba(168, 85, 247, 0.05) 50%, transparent 51%),
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.02) 0%, transparent 50%);
+  background-size: 60px 60px, 200px 200px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Formulario con glassmorphism  */
+.login-right .auth-container {
+  background: rgba(15, 15, 26, 0.8) !important;
+  border: 2px solid rgba(168, 85, 247, 0.3) !important;
+  backdrop-filter: blur(15px) !important;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1.5rem !important;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  animation: formSlideIn 0.8s ease-out;
+}
+
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-right .auth-container:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Efecto de brillo  */
+.login-right .auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.login-right .auth-container:hover::before {
+  left: 100%;
+}
+
+.login-right .auth-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.login-right .glass-input {
+  background: rgba(15, 15, 26, 0.7) !important;
+  border: 2px solid rgba(168, 85, 247, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+  font-size: 1.1rem !important;
+  padding: 1rem 1.5rem !important;
+}
+
+.login-right .glass-input:focus {
+  background: rgba(15, 15, 26, 0.9) !important;
+  border-color: rgba(255, 215, 0, 0.5) !important;
+  box-shadow: 
+    0 0 0 3px rgba(168, 85, 247, 0.2),
+    0 6px 20px rgba(124, 58, 237, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+.login-right .glass-button {
+  background: var(--gradient-button) !important;
+  border: 2px solid rgba(255, 215, 0, 0.3) !important;
+  box-shadow: 
+    0 8px 20px rgba(124, 58, 237, 0.3), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem !important;
+  padding: 1.2rem 2rem !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-right .glass-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.login-right .glass-button:hover {
+  background: linear-gradient(
+    135deg, 
+    rgba(124, 58, 237, 0.9) 0%,
+    rgba(168, 85, 247, 0.9) 100%
+  ) !important;
+  box-shadow: 
+    0 12px 25px rgba(124, 58, 237, 0.4), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+.login-right .glass-button:hover::before {
+  transform: translateX(100%);
+}
+
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 45%;
+  width: 10%;
+  height: 15%;
+  background: radial-gradient(
+    ellipse, 
+    rgba(255, 215, 0, 0.15) 0%, 
+    rgba(255, 215, 0, 0.05) 50%, 
+    transparent 100%
+  );
+  z-index: 5;
+  animation: ambientPulse 8s ease-in-out infinite;
+  pointer-events: none;
+  filter: blur(15px);
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+
+.login-right img[alt="Logo de la Página"] {
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-right img[alt="Logo de la Página"]:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.error-message {
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+  animation: errorSlideIn 0.3s ease-out;
+}
+
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.switch-link {
+  color: rgba(255, 215, 0, 0.9) !important;
+  font-weight: 600 !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.switch-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: rgba(255, 215, 0, 0.8);
+  transition: width 0.3s ease;
+}
+
+.switch-link:hover {
+  color: rgba(255, 215, 0, 1) !important;
+}
+
+.switch-link:hover::after {
+  width: 100%;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid rgba(255, 215, 0, 0.8);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+@media (max-width: 1024px) {
+  .login-container {
+    flex-direction: column;
+    width: 100vw;
+  }
+  
+  .login-left,
+  .login-right {
+    width: 100%;
+    height: 50vh;
+  }
+  
+  .login-right {
+    padding-top: 2rem;
+  }
+  
+  .login-title {
+    top: 8%;
+    padding: 1.5rem 3rem;
+  }
+  
+  .login-title h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .login-title {
+    padding: 1rem 2rem;
+    top: 6%;
+  }
+  
+  .login-title h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+  
+  .login-left img {
+    width: 80%;
+  }
+  
+  .login-right .auth-container {
+    width: 90%;
+    margin: 1rem;
+    padding: 2rem !important;
+  }
+  
+  .login-right .glass-input {
+    font-size: 1rem !important;
+    padding: 0.875rem 1.25rem !important;
+  }
+  
+  .login-right .glass-button {
+    font-size: 1.1rem !important;
+    padding: 1rem 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-title {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .login-title h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+  
+  .login-right .auth-container {
+    padding: 1.5rem !important;
+  }
+}
+
+
+.login-container {
+  animation: containerFadeIn 0.6s ease-out;
+}
+
+@keyframes containerFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(15px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Configuración para usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimización de hardware acceleration solo donde es necesario */
+.login-title,
+.login-left img,
+.login-right .auth-container {
+  will-change: transform;
+}
+
+.login-title h1::after,
+.login-right .auth-container::before,
+.login-right .glass-button::before {
+  will-change: transform;
+}
