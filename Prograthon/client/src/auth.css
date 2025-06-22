@@ -1,0 +1,97 @@
+/* client/src/auth.css */
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    #1b1b2d 0%,
+    #181824 100%
+  );
+  color: #e0e7ff;
+  font-family: "Inter", sans-serif;
+}
+
+#root {
+  width: 100%;
+  padding: 1rem;
+}
+
+.auth-container {
+  @apply glass-card p-6 max-w-[480px] mx-auto;
+}
+
+/* Título */
+.auth-container h2 {
+  @apply text-2xl text-center font-bold mb-4 text-white;
+}
+
+/* Avatar solo en EditProfile */
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #5e00ff, #9b00ff);
+  display: block;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 24px rgba(94, 0, 255, 0.4);
+}
+
+/* Formulario interno */
+.auth-form {
+  @apply space-y-4;
+}
+
+.input-field {
+  @apply glass-input;
+}
+
+.auth-button,
+.btn-primary {
+  @apply w-full py-3 text-lg glass-button;
+}
+
+/* Enlace de cambio de formulario */
+.switch-link {
+  color: #a3aed0;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.switch-link:hover {
+  color: #d4d7df;
+}
+
+/* Mensajes de error / éxito */
+.error-message {
+  @apply bg-[#3f1a1a] border border-[#7a0000] rounded-lg px-3 py-2 text-sm text-[#ffb3b3] mb-2;
+}
+.success-message {
+  @apply bg-[#1a3f24] border border-[#007a33] rounded-lg px-3 py-2 text-sm text-[#a3f7d0] mb-2;
+}
+
+/* Loader circular */
+.loader {
+  border: 3px solid transparent;
+  border-top: 3px solid #e0e7ff;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Textos secundarios */
+.text-secondary {
+  color: #a3aed0;
+}
