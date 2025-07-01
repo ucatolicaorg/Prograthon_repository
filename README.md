@@ -120,6 +120,38 @@ Este conjunto de comandos configura un stack mern completo para:
     - **react-router-dom**: Biblioteca de enrutamiento para React (v6.x)
     - Permite crear navegación entre componentes/páginas
     - (Nota: Aunque se usa ```-D```, normalmente sería dependencia regular)
+---
+# 📦 Instalación de **cpp-httplib** para C++
+
+Esta guía te llevará paso a paso por el proceso de poner a punto **cpp-httplib**, un framework ligero de HTTP/HTTPS en un solo archivo de cabecera, para tus proyectos en C++.
+
+---
+
+## 📝 Requisitos previos
+
+- **Compilador C++** compatible con C++11 o superior (g++, clang++, MSVC).
+- Conexión a Internet para descargar el archivo de cabecera.
+- (Opcional) **CMake** o gestor de paquetes como **vcpkg** si prefieres integrarlo en tu flujo de trabajo.
+
+---
+
+## 🔍 1. Obtener el archivo de cabecera
+
+cpp-httplib está distribuido como un único archivo `httplib.h`. Tienes dos opciones:
+
+1. **Descarga directa**  
+   - Ve a la página oficial en GitHub:  
+     ```
+     https://github.com/yhirose/cpp-httplib
+     ```
+   - Haz clic en “Raw” sobre el archivo `httplib.h` y guarda su contenido en tu proyecto, por ejemplo en `include/httplib.h`.
+
+2. **Clonar el repositorio**  
+   ```bash
+   git clone https://github.com/yhirose/cpp-httplib.git
+   cd cpp-httplib
+   # Copia httplib.h a tu carpeta de include
+   cp single_include/httplib.h /ruta/a/tu/proyecto/include/
 
 
 <h4 align="center">
