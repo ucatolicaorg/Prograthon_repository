@@ -123,5 +123,5 @@ Este conjunto de comandos configura un stack mern completo para:
 
 
 <h4 align="center">
-:construction: Proyecto en construcción :construction:
+:construction: Proyecto en desarrollo y producción :construction:
 </h4>
