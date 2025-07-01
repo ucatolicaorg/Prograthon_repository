@@ -2,7 +2,7 @@
 
 **Prograthon** es tu compañero definitivo para planificar, seguir y mejorar tus maratones de programación. Con una interfaz web moderna y herramientas potentes, te permitirá concentrarte en lo que más importa: ¡codificar!
 
----
+
 
 ## 🌟 Características principales
 
@@ -21,7 +21,7 @@
 - **Perfil de usuario personalizable**  
   Cada participante puede completar su perfil, ver estadísticas históricas y compararse con sus registros anteriores.
 
----
+
 
 ## 🛠️ Tecnologías
 
@@ -34,7 +34,7 @@ Prograthon está construido sobre la pila **MERN** y algunas herramientas adicio
 - **JavaScript**, **HTML5** y **CSS3** para la experiencia web  
 - **C++** para la ejecución de algoritmos potentes y funcionales
 
-  
+---  
 
 # Ejecución del proyecto
 
