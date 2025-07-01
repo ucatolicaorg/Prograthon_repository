@@ -32,34 +32,34 @@ Prograthon está construido sobre la pila **MERN** y algunas herramientas adicio
 - **React.js** para una interfaz de usuario ágil e interactiva  
 - **Node.js** para la lógica de backend  
 - **JavaScript**, **HTML5** y **CSS3** para la experiencia web  
-- **C++** para la ejecución de algoritmos potentes y funcionales
+- **C++** para la ejecución de soluciones y validación de rendimiento en desafíos de alto nivel
 
----  
+---
 
-# Ejecución del proyecto
+# 🚀 ¡Ejecución del Proyecto!
 
-## Índice
-- [Requisitos](#Requisitos)
-- [Configuración del entorno de desarrollo](#Configuración-del-entorno-de-desarrollo)
+## 📑 Índice
+- [🎯 Requisitos](#requisitos)  
+- [⚙️ Configuración del Entorno de Desarrollo](#configuración-del-entorno-de-desarrollo)
 
-## Requisitos
+---
 
-- Node.js
+## 🎯 Requisitos
 
-    Descarga el instalador oficial desde: https://nodejs.org/en
+- **Node.js**  
+  Descarga el instalador oficial: https://nodejs.org/en 🌐
 
-- npm y git
+- **npm** y **git**  
+  Verifica su instalación con:
+  ```bash
+  npm -v
+  git -v
 
-    Son complementarios, puedes comprobar si los tienes con los comandos:
-
-        npm -v
-        git -v
-
-> [!TIP]
+> [!💡 TIP]
 > En algunos casos ```npm``` no esta configurado como scripts de PowerShell firmados, en esos casos es necesario ejecutar la terminal como administrador para ejecutar scripts de PowerShell no firmados, mediante ```Set-ExecutionPolicy RemoteSigned```, seleccionando ```si```.
     
 
-## Configuración del entorno de desarrollo
+## ⚙️Configuración del entorno de desarrollo
 
 Este conjunto de comandos configura un stack mern completo para:
   - Backend Node.js/Express con MongoDB
@@ -73,16 +73,16 @@ Este conjunto de comandos configura un stack mern completo para:
 
         npm install mongodb express cors
 
-    - **mongodb**: Controlador oficial de MongoDB para Node.js (para interactuar con bases de datos MongoDB)
-    - **express**: Framework web para Node.js (para crear APIs y servidores web)
-    - **cors**: Middleware para habilitar CORS (Cross-Origin Resource Sharing)
+    - **🗄️mongodb**: Controlador oficial de MongoDB para Node.js (para interactuar con bases de datos MongoDB)
+    - **🌐express**: Framework web para Node.js (para crear APIs y servidores web)
+    - **🔄cors**: Middleware para habilitar CORS (Cross-Origin Resource Sharing)
 
 2. Creación de frontend con Vite + React
 
         npm create vite@latest client -- --template 
 
-    - Crea un nuevo proyecto React usando Vite (herramienta de build moderna)
-    - Nombre del proyecto: `client`
+    - 🚀Crea un nuevo proyecto React usando Vite (herramienta de build moderna)
+    - 📂Nombre del proyecto: `client`
     - Usa la plantilla oficial de React
 
 3. Instalar dependencias del frontend
@@ -100,32 +100,34 @@ Este conjunto de comandos configura un stack mern completo para:
 
         npm install -D tailwindcss postcss autoprefixer
 
-    - **tailwindcss**: Framework CSS utility-first
-    - **postcss**: Herramienta de transformación CSS
-    - **autoprefixer**: Plugin para agregar prefijos de vendedores CSS
+    - **✨tailwindcss**: Framework CSS utility-first
+    - **🔄postcss**: Herramienta de transformación CSS
+    - **🛠️autoprefixer**: Plugin para agregar prefijos de vendedores CSS
     - ```-D```: Instala como dependencias de desarrollo
 
 5. Inicializar Tailwind
 
         npx tailwindcss init -p
 
-    - Crea archivo de configuración ```tailwind.config.js```
+    - ⚙️Crea archivo de configuración ```tailwind.config.js```
     - ```-p```: Crea también ```postcss.config.js```
-    - Configura la integración con PostCSS
+    - 🔧Configura la integración con PostCSS
 
 6. React Router (enrutamiento)
 
         npm install -D react-router-dom
 
-    - **react-router-dom**: Biblioteca de enrutamiento para React (v6.x)
+    - **🧭react-router-dom**: Biblioteca de enrutamiento para React (v6.x)
     - Permite crear navegación entre componentes/páginas
     - (Nota: Aunque se usa ```-D```, normalmente sería dependencia regular)
+      
 ---
+
 # 📦 Instalación de **cpp-httplib** para C++
 
 Esta guía te llevará paso a paso por el proceso de poner a punto **cpp-httplib**, un framework ligero de HTTP/HTTPS en un solo archivo de cabecera, para tus proyectos en C++.
 
----
+
 
 ## 📝 Requisitos previos
 
@@ -133,7 +135,7 @@ Esta guía te llevará paso a paso por el proceso de poner a punto **cpp-httplib
 - Conexión a Internet para descargar el archivo de cabecera.
 - (Opcional) **CMake** o gestor de paquetes como **vcpkg** si prefieres integrarlo en tu flujo de trabajo.
 
----
+
 
 ## 🔍 1. Obtener el archivo de cabecera
 
@@ -153,7 +155,3 @@ cpp-httplib está distribuido como un único archivo `httplib.h`. Tienes dos opc
    # Copia httplib.h a tu carpeta de include
    cp single_include/httplib.h /ruta/a/tu/proyecto/include/
 
-
-<h4 align="center">
-:construction: Proyecto en desarrollo y producción :construction:
-</h4>
