@@ -1,3 +1,0 @@
-C:/Users/rgila/AMOR/backend/build/CMakeFiles/server.dir
-C:/Users/rgila/AMOR/backend/build/CMakeFiles/edit_cache.dir
-C:/Users/rgila/AMOR/backend/build/CMakeFiles/rebuild_cache.dir
