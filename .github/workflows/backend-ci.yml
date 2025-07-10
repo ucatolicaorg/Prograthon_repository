@@ -1,0 +1,36 @@
+name: Backend CI
+
+on:
+  push:
+    paths:
+      - 'PPS C++/backend/**'   # Solo cambios en backend disparan este workflow
+  pull_request:
+    paths:
+      - 'PPS C++/backend/**'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      VCPKG_INSTALLATION_ROOT: ${{ github.workspace }}\vcpkg
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup VCPKG
+      run: |
+        git clone https://github.com/Microsoft/vcpkg.git
+        .\vcpkg\bootstrap-vcpkg.bat
+        echo "VCPKG_INSTALLATION_ROOT=$env:GITHUB_WORKSPACE\vcpkg" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+        
+    - name: Install dependencies
+      run: .\vcpkg\vcpkg install libpq jwt-cpp argon2 --triplet x64-windows
+      
+    - name: Build backend
+      working-directory: ./PPS C++/backend
+      run: build.bat
+      
+    - name: Run server tests
+      working-directory: ./PPS C++/backend/build/Release
+      run: server.exe --test

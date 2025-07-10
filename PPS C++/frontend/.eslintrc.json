@@ -1,0 +1,9 @@
+{
+  "extends": ["react-app", "plugin:react/recommended"],
+  "rules": {
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "warn",
+    "no-console": "warn"
+  }
+}
