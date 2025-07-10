@@ -2,156 +2,225 @@
 
 **Prograthon** es tu compañero definitivo para planificar, seguir y mejorar tus maratones de programación. Con una interfaz web moderna y herramientas potentes, te permitirá concentrarte en lo que más importa: ¡codificar!
 
+---
 
+## 🎯 Público objetivo
+
+Este proyecto está dirigido a los **estudiantes de la Universidad Católica de Colombia** interesados en fortalecer sus habilidades en **programación competitiva**. A través de un entorno práctico con funcionalidades de maratones, seguimiento de desempeño y gestión de usuarios por rol, se busca fomentar la participación activa, el aprendizaje autónomo y el desarrollo de competencias clave en resolución de problemas algorítmicos.
+
+---
 
 ## 🌟 Características principales
 
-- **Seguimiento en tiempo real**  
-  Visualiza el progreso de cada participante y equipo durante la maratón: problemas resueltos, tiempo empleado y puntuación acumulada.
+- **Gestión de usuarios por roles**  
+  Permite registrar y autenticar estudiantes, profesores y un administrador general, cada uno con distintos niveles de acceso y permisos dentro del sistema.
+
+- **Autenticación segura con JWT y Argon2**
+  Implementación robusta de seguridad para login y registro: las contraseñas se almacenan de forma cifrada con Argon2 y las sesiones se manejan mediante tokens JWT generados y verificados desde la API en C++.
+
+- **API REST eficiente desarrollada en C++**
+  El backend se desarrolla usando la librería cpp-httplib, lo que permite manejar peticiones HTTP (GET, POST, etc.) de forma liviana, rápida y modular.
+
+- **Base de datos PostgreSQL**
+  Toda la información del sistema (usuarios, maratones, inscripciones) se almacena y gestiona con PostgreSQL, una base de datos relacional robusta y de alto rendimiento, integrada con C++ mediante libpq.
+
+- **Frontend moderno con React**
+  El cliente web está construido con React, usando componentes reutilizables y enrutamiento dinámico con react-router-dom para una experiencia fluida tipo SPA (Single Page Application).
+
+- **Sistema de maratones**
+  Los profesores y administradores pueden crear nuevas maratones de programación, y los estudiantes pueden inscribirse desde la plataforma web. Cada maratón puede tener restricciones y configuraciones específicas.
 
 - **Gestión de retos**  
   Crea, edita y organiza desafíos de distintos niveles de dificultad (fácil, medio, difícil) con descripciones detalladas y casos de prueba configurables.
 
-- **Tablas de clasificación dinámicas**  
-  Clasificaciones globales, por equipo o individuales, ordenadas por puntos y tiempo de entrega.
+- **Compilación y automatización multiplataforma**
+  Uso de CMake y build.bat para automatizar la generación y construcción del proyecto C++ desde terminal, facilitando el desarrollo, pruebas y despliegue.
 
-- **Notificaciones y alertas**  
-  Recibe avisos automáticos cuando se acerquen los plazos de entrega o cuando se publiquen nuevos retos.
-
-- **Perfil de usuario personalizable**  
-  Cada participante puede completar su perfil, ver estadísticas históricas y compararse con sus registros anteriores.
-
-
+- **Gestion de dependencias con vcpkg**
+  Todas las bibliotecas externas necesarias (como httplib, json, libpq, jwt-cpp, argon2) son instaladas y administradas eficientemente con vcpkg, garantizando portabilidad y mantenibilidad.
+  
+---
 
 ## 🛠️ Tecnologías
 
-Prograthon está construido sobre la pila **MERN** y algunas herramientas adicionales:
-
-- **MongoDB** para almacenamiento de datos  
-- **Express.js** como servidor HTTP  
-- **React.js** para una interfaz de usuario ágil e interactiva  
-- **Node.js** para la lógica de backend  
-- **JavaScript**, **HTML5** y **CSS3** para la experiencia web  
-- **C++** para la ejecución de soluciones y validación de rendimiento en desafíos de alto nivel
+- **C++**  
+- **PostgreSQL**  
+- **cpp-httplib** (httplib.h + json.hpp)  
+- **libpq**  
+- **vcpkg**  
+- **CMake**  
+- **g++ (MingW64)**  
+- **React** 
+- **jwt-cpp**  
+- **argon2**  
 
 ---
 
-# 🚀 ¡Ejecución del Proyecto!
+# 🚀 ¡Instalación del Proyecto!
 
 ## 📑 Índice
 - [🎯 Requisitos](#requisitos)  
-- [⚙️ Configuración del Entorno de Desarrollo](#configuración-del-entorno-de-desarrollo)
+- [⚙️ Configuración del entorno de desarrollo](#configuración-del-entorno-de-desarrollo)  
+- [🏗️ Backend](#backend)  
+- [⚛️ Frontend](#frontend)    
+- [✅ Finalizar](#finalizar)  
 
 ---
 
 ## 🎯 Requisitos
 
-- **Node.js**  
-  Descarga el instalador oficial: https://nodejs.org/en 🌐
+- **vcpkg**  
+  Gestor de paquetes para C++ (Windows).  
+- **CMake**  
+  Generación de proyectos y Makefiles.  
+- **g++ (MingW64)**  
+  Compilador C++ compatible con C++11+.  
+- **Node.js y npm**  
+  Para el frontend en React.  
 
-- **npm** y **git**  
-  Verifica su instalación con:
-  ```bash
-  npm -v
-  git -v
+> [!💡 TIP]  
+> Si PowerShell bloquea scripts npm, abre la terminal como administrador y ejecuta `Set-ExecutionPolicy RemoteSigned`.  
 
-> [!💡 TIP]
-> En algunos casos ```npm``` no esta configurado como scripts de PowerShell firmados, en esos casos es necesario ejecutar la terminal como administrador para ejecutar scripts de PowerShell no firmados, mediante ```Set-ExecutionPolicy RemoteSigned```, seleccionando ```si```.
-    
-
-## ⚙️Configuración del entorno de desarrollo
-
-Este conjunto de comandos configura un stack mern completo para:
-  - Backend Node.js/Express con MongoDB
-  - Frontend React con Vite
-  - Estilos con Tailwind CSS
-  - Enrutamiento con React Router
-  - Configuración CORS para comunicación entre frontend y backend
-<br/>
-
-1. Backend y dependencias base
-
-        npm install mongodb express cors
-
-    - **🗄️mongodb**: Controlador oficial de MongoDB para Node.js (para interactuar con bases de datos MongoDB)
-    - **🌐express**: Framework web para Node.js (para crear APIs y servidores web)
-    - **🔄cors**: Middleware para habilitar CORS (Cross-Origin Resource Sharing)
-
-2. Creación de frontend con Vite + React
-
-        npm create vite@latest client -- --template 
-
-    - 🚀Crea un nuevo proyecto React usando Vite (herramienta de build moderna)
-    - 📂Nombre del proyecto: `client`
-    - Usa la plantilla oficial de React
-
-3. Instalar dependencias del frontend
-
-        cd client
-        npm install
-
-    - Instala todas las dependencias del proyecto React creado por Vite:
-        - react
-        - react-dom
-        - @vitejs/plugin-react
-        - etc.
-
-4. Configuración de Tailwind CSS
-
-        npm install -D tailwindcss postcss autoprefixer
-
-    - **✨tailwindcss**: Framework CSS utility-first
-    - **🔄postcss**: Herramienta de transformación CSS
-    - **🛠️autoprefixer**: Plugin para agregar prefijos de vendedores CSS
-    - ```-D```: Instala como dependencias de desarrollo
-
-5. Inicializar Tailwind
-
-        npx tailwindcss init -p
-
-    - ⚙️Crea archivo de configuración ```tailwind.config.js```
-    - ```-p```: Crea también ```postcss.config.js```
-    - 🔧Configura la integración con PostCSS
-
-6. React Router (enrutamiento)
-
-        npm install -D react-router-dom
-
-    - **🧭react-router-dom**: Biblioteca de enrutamiento para React (v6.x)
-    - Permite crear navegación entre componentes/páginas
-    - (Nota: Aunque se usa ```-D```, normalmente sería dependencia regular)
-      
 ---
 
-# 📦 Instalación de **cpp-httplib** para C++
+## ⚙️ Configuración del entorno de desarrollo
 
-Esta guía te llevará paso a paso por el proceso de poner a punto **cpp-httplib**, un framework ligero de HTTP/HTTPS en un solo archivo de cabecera, para tus proyectos en C++.
+1. Clonar repositorio (carpeta PPS C++) y prepararlo  
+        
+        git clone https://github.com/tu-usuario/tu-repositorio.git
+        cd tu-repositorio
+
+    - **Repositorio**: Código fuente del backend y frontend.
+
+2. Configurar vcpkg  
+        
+        cd vcpkg
+        .\bootstrap-vcpkg.bat
+        .\vcpkg integrate install
+
+    - **vcpkg**: Instalación y configuración global.
+
+3. Instalar dependencias C++ vía vcpkg  
+        
+        vcpkg install libpq:x64-windows
+        vcpkg install nlohmann-json:x64-windows
+        vcpkg install httplib:x64-windows
+        vcpkg install jwt-cpp:x64-windows
+        vcpkg install argon2:x64-windows
+
+    - **libpq**: Adaptador PostgreSQL.  
+    - **nlohmann-json**: Manejo de JSON.  
+    - **cpp-httplib**: Servidor HTTP/HTTPS.  
+    - **jwt-cpp**: JWT en C++.  
+    - **argon2**: Algoritmo de hash seguro.
 
 
+4. Instalar Cmake y MINGW64
 
-## 📝 Requisitos previos
+**MingW64** es un entorno GCC para Windows que te permite compilar proyectos en C y C++ usando g++/gcc y utilidades POSIX.
 
-- **Compilador C++** compatible con C++11 o superior (g++, clang++, MSVC).
-- Conexión a Internet para descargar el archivo de cabecera.
-- (Opcional) **CMake** o gestor de paquetes como **vcpkg** si prefieres integrarlo en tu flujo de trabajo.
+## 🌟 Características principales
 
+- **Compilador g++/gcc**  
+  Compatible con C++11+ y bibliotecas estándar GNU.  
+- **Entorno POSIX**  
+  Incluye bash, make, autotools y más.  
+- **Ligero y portable**  
+  Instalación mínima y configuración sencilla.
 
+## 🛠️ Instalación y uso
 
-## 🔍 1. Obtener el archivo de cabecera
+1) Descarga el instalador oficial desde https://mingw-w64.org/doku.php/download  
 
-cpp-httplib está distribuido como un único archivo `httplib.h`. Tienes dos opciones:
+2) Ejecuta el instalador:  
+   - Arquitectura: x86_64  
+   - Threads: win32  
+   - Exception: seh  
+   - Ruta: `C:\mingw64`  
 
-1. **Descarga directa**  
-   - Ve a la página oficial en GitHub:  
-     ```
-     https://github.com/yhirose/cpp-httplib
-     ```
-   - Haz clic en “Raw” sobre el archivo `httplib.h` y guarda su contenido en tu proyecto, por ejemplo en `include/httplib.h`.
+3) Agrega `C:\mingw64\bin` al `PATH` de Windows.  
 
-2. **Clonar el repositorio**  
+4) Verifica la instalación:  
    ```bash
-   git clone https://github.com/yhirose/cpp-httplib.git
-   cd cpp-httplib
-   # Copia httplib.h a tu carpeta de include
-   cp single_include/httplib.h /ruta/a/tu/proyecto/include/
+   g++ --version
+   gcc --version
 
+5) Compila el codigo
+   ```bash
+   g++ -std=c++17 main.cpp -o main.exe
+   
+6) Ejecuta el binario
+   ```bash
+   ./main.exe
+
+---
+
+**CMake** es una herramienta multiplataforma para generar Makefiles y proyectos para diversos IDEs y sistemas de construcción.
+
+
+## 🌟 Características principales
+
+- **Multiplataforma**  
+  Soporta Windows, Linux y macOS.  
+- **Generación de proyectos**  
+  Integración con Visual Studio, Ninja, Makefiles y más.
+- **Configuración modular**  
+  Archivos CMakeLists.txt personalizables.
+
+## 🛠️ Instalación y uso
+
+1) Descarga el instalador de windows oficial desde https://cmake.org/download/ 
+
+2) Ejecuta el instalador   
+
+3) Marca “Add CMake to the system PATH”.  
+
+4) Verifica la instalación:  
+   ```bash
+   cmake --version
+
+5) En tu proyecto
+   ```bash
+   mkdir build && cd build
+   cmake ..
+   
+6) Compila el proyecto
+   ```bash
+   cmake --build .
+
+7) Ejecuta el ejecutable
+   ```bash
+   ./TuEjecutable.exe
+
+---
+
+5. Construir el backend  
+        
+        build.bat
+
+    - Crea carpeta `build/`.  
+    - Genera `server.exe` usando CMake y g++.
+
+---
+
+6. Ejecutar la API  
+        
+        cd build
+        .\server.exe
+
+    - La API estará activa en `http://localhost:8080`.
+
+---
+
+7. Configurar y ejecutar el frontend  
+        
+        cd frontend
+        npx create-react-app .
+        npm install react-router-dom
+        npm start
+
+    - La aplicación React correrá en `http://localhost:3000`.  
+
+---
+
+## ✅ Finalizar
