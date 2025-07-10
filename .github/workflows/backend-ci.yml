@@ -3,10 +3,10 @@ name: Backend CI
 on:
   push:
     paths:
-      - 'PPS C++/backend/**'   # Usar comillas para espacios
+      - 'PPS-CPP/backend/**'
   pull_request:
     paths:
-      - 'PPS C++/backend/**'   # Usar comillas para espacios
+      - 'PPS-CPP/backend/**'
 
 jobs:
   build:
@@ -28,9 +28,9 @@ jobs:
       run: .\vcpkg\vcpkg install libpq jwt-cpp argon2 --triplet x64-windows
       
     - name: Build backend
-      working-directory: './PPS C++/backend'  # Escapar con comillas
+      working-directory: ./PPS-CPP/backend
       run: build.bat
       
     - name: Run server tests
-      working-directory: './PPS C++/backend/build/Release'  # Escapar con comillas
+      working-directory: ./PPS-CPP/backend/build/Release
       run: server.exe --test

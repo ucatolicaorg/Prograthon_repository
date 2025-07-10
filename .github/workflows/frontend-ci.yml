@@ -4,17 +4,17 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'PPS C++/frontend/**'   # Usar comillas para espacios
+      - 'PPS-CPP/frontend/**'
   pull_request:
     paths:
-      - 'PPS C++/frontend/**'   # Usar comillas para espacios
+      - 'PPS-CPP/frontend/**'
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: './PPS C++/frontend'  # Escapar con comillas
+        working-directory: ./PPS-CPP/frontend
 
     steps:
     - name: Checkout code
@@ -25,7 +25,7 @@ jobs:
       with:
         node-version: '20'
         cache: 'npm'
-        cache-dependency-path: './PPS C++/frontend/package-lock.json'  # Especificar ruta
+        cache-dependency-path: './PPS-CPP/frontend/package-lock.json'
         
     - name: Install dependencies
       run: npm ci
@@ -43,11 +43,11 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: coverage-report
-        path: './PPS C++/frontend/coverage'  # Ruta completa
+        path: ./PPS-CPP/frontend/coverage
         
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: './PPS C++/frontend/build'  # Ruta completa
+        publish_dir: ./PPS-CPP/frontend/build
