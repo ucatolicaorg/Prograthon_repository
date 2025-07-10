@@ -43,7 +43,7 @@ if %errorlevel% neq 0 (
 echo.
 echo Compilando el proyecto...
 cmake --build build --config Release --parallel 4
-
+    
 if %errorlevel% neq 0 (
     echo Error en la compilacion
     exit /b 1
